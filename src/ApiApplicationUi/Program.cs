@@ -1,6 +1,7 @@
 ﻿using CalendarApiApplicationCore.Interfaces;
 using CalendarApiApplicationCore.Services;
 using System;
+using System.IO;
 
 namespace ApiApplicationUi
 {
@@ -16,6 +17,16 @@ namespace ApiApplicationUi
                 Console.WriteLine(item.month);
                 Console.WriteLine(item.day);
                 Console.WriteLine(item.name);
+            }
+            var writePath = "text.txt";
+            using (StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default))
+            {
+                foreach (var item in qqq.results)
+                {
+                    sw.WriteLine(item.month);
+                    sw.WriteLine(item.day);
+                    sw.WriteLine(item.name);
+                }
             }
             Console.ReadKey();
         }
