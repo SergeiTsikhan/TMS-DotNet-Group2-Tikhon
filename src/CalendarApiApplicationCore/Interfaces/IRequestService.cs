@@ -8,7 +8,6 @@ namespace CalendarApiApplicationCore.Interfaces
 {
     public interface IRequestService
     {
-         Task<MainResponse> SeMethod();
-        object GetAwaiter();
+         Task<Main> SeMethod(string str1, string str2);
     }
 }

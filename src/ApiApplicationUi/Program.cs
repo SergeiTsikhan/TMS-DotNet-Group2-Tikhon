@@ -9,7 +9,13 @@ namespace ApiApplicationUi
         static void Main(string[] args)
         {
             IRequestService requestService = new RequestService();
-            //var qqq = requestService.GetAwaiter().GetResult();
+            var qqq = requestService.SeMethod("John", "us").GetAwaiter().GetResult();
+            foreach (var item in qqq.results)
+            {
+                Console.WriteLine(item.day);
+                Console.WriteLine(item.name);
+                Console.WriteLine(item.month);
+            }
             Console.ReadKey();
         }
     }
