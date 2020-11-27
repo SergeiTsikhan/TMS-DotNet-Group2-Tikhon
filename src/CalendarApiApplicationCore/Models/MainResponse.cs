@@ -1,5 +1,4 @@
-﻿using Google.Rpc;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CalendarApiApplicationCore.Models
 {
@@ -15,6 +14,6 @@ namespace CalendarApiApplicationCore.Models
     {
         public string Code { get; set; }
         public IList<Result> results { get; set; }
-}
+    }
 
 }

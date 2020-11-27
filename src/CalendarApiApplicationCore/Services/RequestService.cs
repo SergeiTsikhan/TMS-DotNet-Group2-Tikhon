@@ -12,11 +12,12 @@ namespace CalendarApiApplicationCore.Services
 {
     public class RequestService : IRequestService
     {
-        public async Task<MainResponse> SeMethod()
+        public async Task<MainResponse> SearchDateMethodAsync(string str1, string str2)
         {
             //https://api.abalin.net/getdate?name=John&country=us
             return await Common.Url
-                .AppendPathSegments("tomorrow")
+                .AppendPathSegments("getdate")
+                .SetQueryParams(new { name = str1, country = str2 })
                 .GetJsonAsync<MainResponse>();
         }
     }
