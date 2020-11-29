@@ -25,7 +25,7 @@ namespace ApiApplicationUi
                 {
                     sw.WriteLine($"Number of month: {item.month}");
                     sw.WriteLine($"Number of day: {item.day}");
-                    sw.WriteLine($"Who has namedays in this day: {item.name});
+                    sw.WriteLine($"Who has namedays in this day: {item.name}");
                 }
             }
             Console.ReadKey();
