@@ -10,22 +10,22 @@ namespace ApiApplicationUi
         static void Main(string[] args)
         {
             IRequestService requestService = new RequestService();
-            var qqq = requestService.SeMethod("Clark","us").GetAwaiter().GetResult();
+            var qqq = requestService.SeMethod("Barack","us").GetAwaiter().GetResult();
             Console.WriteLine(qqq);
             foreach (var item in qqq.results)
             {
-                Console.WriteLine(item.month);
-                Console.WriteLine(item.day);
-                Console.WriteLine(item.name);
+                Console.WriteLine($"Number of month: {item.month}") ;
+                Console.WriteLine($"Number of day: {item.day}");
+                Console.WriteLine($"Who has namedays in this day: {item.name}");
             }
             var writePath = "text.txt";
             using (StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default))
             {
                 foreach (var item in qqq.results)
                 {
-                    sw.WriteLine(item.month);
-                    sw.WriteLine(item.day);
-                    sw.WriteLine(item.name);
+                    sw.WriteLine($"Number of month: {item.month}");
+                    sw.WriteLine($"Number of day: {item.day}");
+                    sw.WriteLine($"Who has namedays in this day: {item.name});
                 }
             }
             Console.ReadKey();
