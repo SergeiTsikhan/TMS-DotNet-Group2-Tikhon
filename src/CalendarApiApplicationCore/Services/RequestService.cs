@@ -12,7 +12,7 @@ namespace CalendarApiApplicationCore.Services
 {
     public class RequestService : IRequestService
     {
-        public async Task<Main> SeMethod(string str1,string str2)
+        public async Task<MainResponse> GetdateMeth(string str1,string str2)
         {
             //https://api.abalin.net/getdate?name=John&country=us
             return await Common.Url
@@ -22,7 +22,52 @@ namespace CalendarApiApplicationCore.Services
                     name = str1,
                     country = str2,
                 })
-                .GetJsonAsync<Main>();
+                .GetJsonAsync<MainResponse>();
+        }
+        public async Task<MainResponse> TodayMeth(string str1, string str2)
+        {
+            return await Common.Url
+                .AppendPathSegments("today")
+                .SetQueryParams(new
+                {
+                    country = str1,
+                    timezone = str2,
+                })
+                .GetJsonAsync<MainResponse>();
+        }
+        public async Task<MainResponse> TomorrowMeth(string str1, string str2)
+        {
+            return await Common.Url
+                .AppendPathSegments("tomorrow")
+                .SetQueryParams(new
+                {
+                    country = str1,
+                    timezone = str2,
+                })
+                .GetJsonAsync<MainResponse>();
+        }
+        public async Task<MainResponse> YesterdayMeth(string str1, string str2)
+        {
+            return await Common.Url
+                .AppendPathSegments("yesterday")
+                .SetQueryParams(new
+                {
+                    country = str1,
+                    timezone = str2,
+                })
+                .GetJsonAsync<MainResponse>();
+        }
+        public async Task<MainResponse> NamedaysMeth(string str1, int str2, int str3)
+        {
+            return await Common.Url
+                .AppendPathSegments("namedays")
+                .SetQueryParams(new
+                {
+                    country = str1,
+                    month = str2,
+                    day = str3,
+                })
+                .GetJsonAsync<MainResponse>();
         }
     }
 }
